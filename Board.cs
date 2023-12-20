@@ -100,7 +100,7 @@ namespace ToDoProject
                     {
                         Console.WriteLine("Başlık      : " + card.Title);
                         Console.WriteLine("İçerik      : " + card.Content);
-                        Console.WriteLine("Atanan Kişi : " + card.Person.Name + " " + card.Person.Surname + " " + card.Person.ID);
+                        Console.WriteLine("Atanan Kişi : " + card.Person.Name + " " + card.Person.Surname);
                         Console.WriteLine("Büyüklük    : " + card.Size);
 
                         if(line.cardList.IndexOf(card) < line.cardList.Count - 1)
@@ -166,7 +166,7 @@ namespace ToDoProject
                     ToDoLine.cardList.Add(card);
 
                     Console.WriteLine();
-                    Console.WriteLine("Kart Eklendi !!!");
+                    Console.WriteLine("Kart Eklendi...");
                 }
                 else
                 {
@@ -190,10 +190,12 @@ namespace ToDoProject
             Console.Write("Lütfen kart başlığını yazınız:");
             string title = Console.ReadLine().Trim();
 
-            bool checkCardInList = CheckCardInList(title);
+            bool checkCardInList;
 
             do
             {
+            checkCardInList = CheckCardInList(title);
+
             if(checkCardInList)
             {
                 foreach (Line line in boardLineList)
@@ -202,7 +204,7 @@ namespace ToDoProject
                 }
 
                 Console.WriteLine();
-                Console.WriteLine("Kart Silindi !!!");
+                Console.WriteLine("Kart Silindi...");
             }
             else
             {
@@ -218,7 +220,6 @@ namespace ToDoProject
                     case 2 :
                         Console.WriteLine("Lütfen kart başlığını yazınız:");
                         title = Console.ReadLine().Trim();
-                        checkCardInList = CheckCardInList(title);
                         break;
                 }
             }
@@ -237,80 +238,80 @@ namespace ToDoProject
             Console.Write("Lütfen kart başlığını yazınız:");
             string title = Console.ReadLine().Trim();
 
-            bool checkCardInList = CheckCardInList(title);
+            bool checkCardInList;
 
             do
             {
-            if(checkCardInList)
-            {
-                foreach (Line line in boardLineList)
+                checkCardInList = CheckCardInList(title);
+                if(checkCardInList)
                 {
-                    Card card = line.cardList.FirstOrDefault(card => card.Title == title);
-
-                    if( card != null)
+                    foreach (Line line in boardLineList)
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("Bulunan Kart Bilgileri:");
-                        Console.WriteLine("**************************************");
-                        Console.WriteLine("Başlık : " + card.Title);
-                        Console.WriteLine("İçerik : " + card.Content);
-                        Console.WriteLine("Atanan Kişi : " + card.Person.Name + card.Person.Surname);
-                        Console.WriteLine("Büyüklük : " + card.Size);
-                        Console.WriteLine("Line : " + line.LineName);
-                        Console.WriteLine("Lütfen taşımak istediğiniz Line'ı seçiniz: (1) TODO (2) IN PROGRESS (3) DONE");
-                        int lineSelect = int.Parse(Console.ReadLine());
-                        switch (lineSelect)
+                        Card card = line.cardList.FirstOrDefault(card => card.Title == title);
+
+                        if( card != null)
                         {
-                            case (int)Lines.ToDo : 
-                                ToDoLine.cardList.Add(card);
-                                line.cardList.Remove(card);
-                                ListBoard();
-                                break;
-                            case (int)Lines.InProgress : 
-                                InProgressLine.cardList.Add(card);
-                                line.cardList.Remove(card);
-                                ListBoard();
-                                break;
-                            case (int)Lines.Done : 
-                                DoneLine.cardList.Add(card);
-                                line.cardList.Remove(card);
-                                ListBoard();
-                                break;
-                            default :
-                                Console.WriteLine("Hatalı Line seçimi yaptınız!");
-                                break;
+                            Console.WriteLine();
+                            Console.WriteLine("Bulunan Kart Bilgileri:");
+                            Console.WriteLine("**************************************");
+                            Console.WriteLine("Başlık : " + card.Title);
+                            Console.WriteLine("İçerik : " + card.Content);
+                            Console.WriteLine("Atanan Kişi : " + card.Person.Name + card.Person.Surname);
+                            Console.WriteLine("Büyüklük : " + card.Size);
+                            Console.WriteLine("Line : " + line.LineName);
+                            Console.WriteLine("Lütfen taşımak istediğiniz Line'ı seçiniz: (1) TODO (2) IN PROGRESS (3) DONE");
+                            int lineSelect = int.Parse(Console.ReadLine());
+                            switch (lineSelect)
+                            {
+                                case (int)Lines.ToDo : 
+                                    ToDoLine.cardList.Add(card);
+                                    line.cardList.Remove(card);
+                                    ListBoard();
+                                    break;
+                                case (int)Lines.InProgress : 
+                                    InProgressLine.cardList.Add(card);
+                                    line.cardList.Remove(card);
+                                    ListBoard();
+                                    break;
+                                case (int)Lines.Done : 
+                                    DoneLine.cardList.Add(card);
+                                    line.cardList.Remove(card);
+                                    ListBoard();
+                                    break;
+                                default :
+                                    Console.WriteLine("Hatalı Line seçimi yaptınız!");
+                                    break;
+                            }
+
+                            break;
                         }
 
-                        break;
                     }
-
                 }
-            }
-            else
-            {
-                Console.WriteLine();
-                Console.WriteLine("Aradığınız krtiterlere uygun kart board'da bulunamadı. Lütfen bir seçim yapınız.");
-                Console.WriteLine("* Silmeyi sonlandırmak için : (1)");
-                Console.WriteLine("* Yeniden denemek için : (2)");
-                int secim = int.Parse(Console.ReadLine());
-                switch (secim)
+                else
                 {
-                    case 1 : 
-                        checkCardInList = true;
-                        break;
-                    case 2 :
-                        Console.WriteLine("Lütfen kart başlığını yazınız:");
-                        title = Console.ReadLine().Trim();
-                        checkCardInList = CheckCardInList(title);
-                        break;
+                    Console.WriteLine();
+                    Console.WriteLine("Aradığınız krtiterlere uygun kart board'da bulunamadı. Lütfen bir seçim yapınız.");
+                    Console.WriteLine("* Silmeyi sonlandırmak için : (1)");
+                    Console.WriteLine("* Yeniden denemek için : (2)");
+                    int secim = int.Parse(Console.ReadLine());
+                    switch (secim)
+                    {
+                        case 1 : 
+                            checkCardInList = true;
+                            break;
+                        case 2 :
+                            Console.WriteLine("Lütfen kart başlığını yazınız:");
+                            title = Console.ReadLine().Trim();
+                            break;
+                    }
                 }
-            }
-    
-            } while (!checkCardInList);
-            
-            Console.WriteLine();
+        
+                } while (!checkCardInList);
+                
+                Console.WriteLine();
 
-            Index();
+                Index();
         }
 
         public bool CheckCardInList(string title)

@@ -1,0 +1,15 @@
+D:\PatikaDev\Patika_Odev\ToDoProject\bin\Debug\net5.0\ToDoProject.exe
+D:\PatikaDev\Patika_Odev\ToDoProject\bin\Debug\net5.0\ToDoProject.deps.json
+D:\PatikaDev\Patika_Odev\ToDoProject\bin\Debug\net5.0\ToDoProject.runtimeconfig.json
+D:\PatikaDev\Patika_Odev\ToDoProject\bin\Debug\net5.0\ToDoProject.runtimeconfig.dev.json
+D:\PatikaDev\Patika_Odev\ToDoProject\bin\Debug\net5.0\ToDoProject.dll
+D:\PatikaDev\Patika_Odev\ToDoProject\bin\Debug\net5.0\ToDoProject.pdb
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ToDoProject.GeneratedMSBuildEditorConfig.editorconfig
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ToDoProject.AssemblyInfoInputs.cache
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ToDoProject.AssemblyInfo.cs
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ToDoProject.csproj.CoreCompileInputs.cache
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ToDoProject.dll
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\refint\ToDoProject.dll
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ToDoProject.pdb
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ToDoProject.genruntimeconfig.cache
+D:\PatikaDev\Patika_Odev\ToDoProject\obj\Debug\net5.0\ref\ToDoProject.dll
